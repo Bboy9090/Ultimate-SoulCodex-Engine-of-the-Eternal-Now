@@ -50,3 +50,14 @@ export const expressionNumber = (fullName?: string): number | null => {
   }, 0);
   return reduceCore(sum);
 };
+
+// Main wrapper function expected by routes.ts
+export function calculateNumerology(birthData: { birthDate: string; name: string }) {
+  return {
+    lifePath: lifePath(birthData.birthDate),
+    birthDay: birthDay(birthData.birthDate),
+    personalYear: personalYear(birthData.birthDate),
+    expressionNumber: expressionNumber(birthData.name),
+  };
+}
+

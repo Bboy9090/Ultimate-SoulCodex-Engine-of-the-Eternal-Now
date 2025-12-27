@@ -41,3 +41,31 @@ export async function* streamChat({ model, systemInstruction, history, message, 
     throw error;
   }
 }
+
+// Wrapper function for text generation
+export async function generateText(prompt: string, options?: { temperature?: number; maxTokens?: number }): Promise<string> {
+  if (!isGeminiAvailable()) {
+    throw new Error("Gemini API is not available");
+  }
+
+  const model = genAI.getGenerativeModel({ 
+    model: "gemini-1.5-flash",
+  });
+
+  try {
+    const result = await model.generateContent({
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: options?.temperature || 0.7,
+        maxOutputTokens: options?.maxTokens || 1000,
+      }
+    });
+
+    const response = await result.response;
+    return response.text();
+  } catch (error) {
+    console.error("Gemini Generate Text Error:", error);
+    throw error;
+  }
+}
+
