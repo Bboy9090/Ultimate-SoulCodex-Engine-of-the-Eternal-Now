@@ -43,21 +43,26 @@ export async function* streamChat({ model, systemInstruction, history, message, 
 }
 
 // Wrapper function for text generation
-export async function generateText(prompt: string, options?: { temperature?: number; maxTokens?: number }): Promise<string> {
+export async function generateText(options: { 
+  prompt: string; 
+  model?: string;
+  temperature?: number; 
+  maxTokens?: number;
+}): Promise<string> {
   if (!isGeminiAvailable()) {
     throw new Error("Gemini API is not available");
   }
 
   const model = genAI.getGenerativeModel({ 
-    model: "gemini-1.5-flash",
+    model: options.model || "gemini-1.5-flash",
   });
 
   try {
     const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      contents: [{ role: 'user', parts: [{ text: options.prompt }] }],
       generationConfig: {
-        temperature: options?.temperature || 0.7,
-        maxOutputTokens: options?.maxTokens || 1000,
+        temperature: options.temperature || 0.7,
+        maxOutputTokens: options.maxTokens || 1000,
       }
     });
 
