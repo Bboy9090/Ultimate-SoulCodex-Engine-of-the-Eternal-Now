@@ -10,19 +10,27 @@ This document captures the non-negotiable standards for the completed Soul Codex
 ## 2) Explanation Engine Architecture
 - **Pipeline:** Raw calculation → Symbol resolver → Meaning translator → Personal context mapper → Cross-system synthesizer → UX narrator. Failure at any stage stops rendering and surfaces a user-facing state rather than placeholder text.
 - **MeaningTranslation contract:**
-  - `whatItIs`
-  - `whyItExists`
-  - `whyItMattersToUser`
-  - `realLifeManifestations[]` (patterns, habits, stress responses)
-  - `shadowPattern?`
-  - `growthPotential`
-  - `integrationPrompt`
+  ```ts
+  interface MeaningTranslation {
+    whatItIs: string;
+    whyItExists: string;
+    whyItMattersToUser: string;
+    realLifeManifestations: string[]; // patterns, habits, stress responses
+    shadowPattern?: string;
+    growthPotential: string;
+    integrationPrompt: string;
+  }
+  ```
 - **SynthesisInsight contract:**
-  - `coreTheme`
-  - `supportingSignals[]`
-  - `conflictingSignals[]?`
-  - `livedExperienceSummary`
-  - `integrationGuidance`
+  ```ts
+  interface SynthesisInsight {
+    coreTheme: string;
+    supportingSignals: string[];
+    conflictingSignals?: string[];
+    livedExperienceSummary: string;
+    integrationGuidance: string;
+  }
+  ```
 - **Explanation density modes:** `essence` (2–3 sentences), `expanded` (1–2 paragraphs), `deepDive` (system mechanics), `scholar` (lineage + math). Scholar is opt-in only.
 
 ## 3) System Translation Templates (Applies to 30+ Systems)
@@ -31,15 +39,15 @@ Each template includes surface meaning, lived expression, shadow/overuse, and in
 This section documents the template patterns using representative systems only. The subsections below (Astrology, Numerology, Human Design, Gene Keys, Tarot, I Ching, Runes, Elements, Chakras / Energy Systems) are examples, not an exhaustive enumeration of all 30+ systems wired into the engine. The full, authoritative list of supported systems MUST be maintained in the living **System Registry** (implementation document) and kept in sync with this canon.
 ### Astrology (Planets, Signs, Houses, Aspects)
 - Planet = function; Sign = style; House = life arena; Aspect = relationship between functions.
-- **Planet-in-Planet example (Moon in Jupiter):** emotional regulation operates through meaning and expansion; nourished by purpose; shadow is overextension or bypass via optimism; integration is growth with boundaries.
-- **Sun in Venus example:** identity expresses through harmony/beauty/relationship; shadow is approval-seeking; integration pairs truth with beauty.
+- **Moon–Jupiter relationship example (Moon in strong aspect to Jupiter):** emotional regulation operates through meaning and expansion; nourished by purpose; shadow is overextension or bypass via optimism; integration is growth with boundaries.
+- **Sun-Venus conjunction example:** identity expresses through harmony/beauty/relationship; shadow is approval-seeking; integration pairs truth with beauty.
 - **Asteroids:** archetype role → activated domain → behavioral pattern → healthy expression → misalignment → integration (e.g., Chiron = pain-to-wisdom training, not brokenness).
 - **Fixed Stars:** psychological theme + modern expression + projection risk; never fate claims.
 
 ### Numerology
 - Every number: core drive → stress behavior → growth challenge → mature expression → cross-system confirmation. Example Life Path 7: drive to understand truth; stress = withdrawal/over-analysis; growth = trust lived experience; maturity = quiet authority without isolation.
 
-### Human Design (De-cultified)
+### Human Design (Non-dogmatic)
 - Translate into biology + psychology + decision impact + environment alignment + common misuse. Example Sacral Authority: bodily energy approval; success when energy agrees; burnout when mind overrides; integrate by letting energy approve before logic commits.
 
 ### Gene Keys

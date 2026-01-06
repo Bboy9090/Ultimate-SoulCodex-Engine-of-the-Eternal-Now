@@ -1,4 +1,4 @@
-🜂 SOUL CODEX
+SOUL CODEX
 
 PARENT CONTEXT LAYER — FULL EXECUTION PACKAGE
 
@@ -32,7 +32,7 @@ Button options:
    • Add Context
    • Skip for Now
 
-Core Reflection Questions (Required Set)
+### Core Reflection Questions (Required Set)
 
 Users answer by selecting one option per question.
 
@@ -104,7 +104,7 @@ Placement Logic
 Parent Context Bands appear ONLY alongside:
    • 🌙 Moon (emotional regulation)
    • ♄ Saturn (authority & structure)
-   • ⚷ Chiron (early sensitivity → wisdom)
+   • Chiron (early sensitivity → wisdom)
    • Undefined Human Design Centers
 
 They never appear on:
@@ -117,7 +117,7 @@ Example UI Copy (Inline)
 
 Early Environment Influence
 
-This trait may have adapted early in response to emotional expectations around you.
+This trait may have adapted early in response to the emotional expectations that caregivers and others placed on you.
 
 Expandable, dismissible, optional.
 
